@@ -1,5 +1,6 @@
 % DEMO for testing MEDA on Office+Caltech10 datasets
 str_domains = {'Caltech10', 'amazon', 'webcam', 'dslr'};
+data_address = '/gdata/fengruili/MEDA/surf/';
 list_acc = [];
 for i = 1 : 4
     for j = 1 : 4
@@ -8,12 +9,12 @@ for i = 1 : 4
         end
         src = str_domains{i};
         tgt = str_domains{j};
-        load(['data/' src '_SURF_L10.mat']);     % source domain
+        load([data_address src '_SURF_L10.mat']);     % source domain
         fts = fts ./ repmat(sum(fts,2),1,size(fts,2)); 
         Xs = zscore(fts,1);    clear fts
         Ys = labels;           clear labels
         
-        load(['data/' tgt '_SURF_L10.mat']);     % target domain
+        load([data_address tgt '_SURF_L10.mat']);     % target domain
         fts = fts ./ repmat(sum(fts,2),1,size(fts,2)); 
         Xt = zscore(fts,1);     clear fts
         Yt = labels;            clear labels

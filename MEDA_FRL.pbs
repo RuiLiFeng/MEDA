@@ -1,0 +1,16 @@
+  #PBS    -N  MEDA_FRL
+  #PBS    -o  /ghome/fengrl/home/MEDA/MEDA/log/out/$PBS_JOBID.out
+  #PBS    -e  /ghome/fengrl/home/MEDA/MEDA/log/err/$PBS_JOBID.err
+  #PBS    -l nodes=1:gpus=1:S
+  #PBS    -r y
+  #PBS    -q mcc
+  cd $PBS_O_WORKDIR
+  echo Time is `date`
+  echo Directory is $PWD
+  echo This job runs on following nodes:
+  echo -n "Node:"
+  cat $PBS_NODEFILE
+  echo -n "Gpus:"
+  cat $PBS_GPUFILE
+  echo "CUDA_VISIBLE_DEVICES:"$CUDA_VISIBLE_DEVICES
+  startdocker -D /gdata/fengruili/MEDA -s "/ghome/fengrl/home/MEDA/MEDA/run.sh"  bit:5000/matlab2017b 
