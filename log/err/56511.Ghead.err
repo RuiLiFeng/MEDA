@@ -1,6 +1,0 @@
-{Error using cd
-Cannot CD to matlab (Name is nonexistent or not a directory).
-
-Error in run (line 48)
-    cd(fileDir);
-} 

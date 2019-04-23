@@ -1,3 +1,0 @@
-Unable to find image 'bit:5000/matlab_2017b:latest' locally
-docker: Error response from daemon: manifest for bit:5000/matlab_2017b:latest not found.
-See 'docker run --help'.

@@ -1,6 +1,0 @@
-Time is Mon Apr 22 17:59:50 CST 2019
-Directory is /ghome/fengrl/home/MEDA/MEDA
-This job runs on following nodes:
-Node:G123
-Gpus:G123-gpu3
-CUDA_VISIBLE_DEVICES:3
