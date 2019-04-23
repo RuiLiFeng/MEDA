@@ -1,0 +1,5 @@
+{Not enough input arguments.
+
+Error in run (line 28)
+if isempty(scriptname)
+} 
