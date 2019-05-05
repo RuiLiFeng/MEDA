@@ -15,7 +15,7 @@ function G = GFK_core(Q,Pt)
     % ref: Geodesic Flow Kernel for Unsupervised Domain Adaptation.  
     % B. Gong, Y. Shi, F. Sha, and K. Grauman.  
     % Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Providence, RI, June 2012.
-
+`
     % Contact: Boqing Gong (boqinggo@usc.edu)
 
     N = size(Q,2); % 
@@ -23,6 +23,8 @@ function G = GFK_core(Q,Pt)
 
     % compute the principal angles
     QPt = Q' * Pt;
+    
+    %GSVD: general SVD, [U,V,X,C,S]=gsvd(A,B), A=U*C*X',B=V*S*X',C'C+S'S=I
     [V1,V2,V,Gam,Sig] = gsvd(QPt(1:dim,:), QPt(dim+1:end,:));
     V2 = -V2;
     theta = real(acos(diag(Gam))); % theta is real in theory. Imaginary part is due to the computation issue.

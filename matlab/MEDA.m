@@ -53,7 +53,7 @@ function [Acc,acc_iter,Beta,Yt_pred] = MEDA(Xs,Ys,Xt,Yt,options)
     Xt = double(Xt_new');
 
     X = [Xs,Xt];
-    n = size(Xs,2);
+    n = size(Xs,2);     %row is the feature dimension                                                                                                                                                                                                                   
     m = size(Xt,2);
     C = length(unique(Ys));
     acc_iter = [];
@@ -62,10 +62,10 @@ function [Acc,acc_iter,Beta,Yt_pred] = MEDA(Xs,Ys,Xt,Yt,options)
     for c = 1 : C
         YY = [YY,Ys==c];
     end
-    YY = [YY;zeros(m,C)];
+    YY = [YY;zeros(m,C)];%size(YY)=2m*C,the first m row is indicator for classes, the last m rows are zeros
 
     %% Data normalization
-    X = X * diag(sparse(1 ./ sqrt(sum(X.^2))));
+    X = X * diag(sparse(1 ./ sqrt(sum(X.^2))));%sum: sum with respect to coloumn, normalize each example
 
     %% Construct graph Laplacian
     if options.rho > 0
